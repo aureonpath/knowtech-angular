@@ -1,1 +1,4 @@
-## Angular.io
+# Getting Started
+
+* npm install
+* npm start (dev)
