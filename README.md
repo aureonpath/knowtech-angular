@@ -1,4 +1,4 @@
 # Getting Started
 
 * npm install
-* npm start (dev) 
+* npm start (dev)
