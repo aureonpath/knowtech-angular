@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import '../../public/css/styles.css';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <navbar></navbar>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+  `
 })
 export class AppComponent { }
