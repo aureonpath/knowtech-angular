@@ -10,5 +10,7 @@ export class User {
     name: string;
     phone: string;
     email: string;
+    username: string;
+    website: string;
     address = new Address();
 }
