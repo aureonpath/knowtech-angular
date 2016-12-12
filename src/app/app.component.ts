@@ -25,14 +25,11 @@ import { User } from './user';
     providers: [UserService]
 })
 export class AppComponent implements OnInit {
-    users: User[];
-    error: any;
+    users: any;
 
     constructor(private _service: UserService) { }
 
     ngOnInit() {
-        this._service.getUsers()
-            .then(users => this.users = users)
-            .catch(error => this.error = error);
+       this.users = this._service.getUsers();
     }
   }
