@@ -19,18 +19,6 @@ const appRoutes: Routes = [
     component: UsersComponent
   },
   {
-    path: 'users/new',
-    component: UserFormComponent
-  },
-  {
-    path: 'users/:id',
-    component: UserFormComponent
-  },
-  {
-    path: 'posts',
-    component: PostsComponent
-  },
-  {
     path: 'not-found',
     component: NotFoundComponent
   }
@@ -39,4 +27,4 @@ const appRoutes: Routes = [
 
 export const routing = RouterModule.forRoot(appRoutes);
 
-export const routedComponents = [HomeComponent, UserFormComponent, NotFoundComponent, PostsComponent];
+export const routedComponents = [HomeComponent, NotFoundComponent];
