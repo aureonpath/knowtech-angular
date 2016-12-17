@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from './users.service';
+import {UserService} from './app.service';
 import { User } from './user';
 
 @Component({
@@ -11,12 +11,14 @@ import { User } from './user';
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>website</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of users">
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
+                    <td>{{ user.website }}</td>
                 </tr>
             </tbody>
         </table>
@@ -25,7 +27,7 @@ import { User } from './user';
     providers: [UserService]
 })
 export class AppComponent implements OnInit {
-    users: any;
+    users: User[];
 
     constructor(private _service: UserService) { }
 
