@@ -1,4 +1,4 @@
-import '../public/css/styles.css';
+import '../public/css/normalize.css';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

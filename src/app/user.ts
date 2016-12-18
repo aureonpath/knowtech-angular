@@ -13,6 +13,7 @@ export class Address {
 
 export class User {
     id: string;
+    picture: string;
     name: string;
     birthday: Date;
     phone: string;

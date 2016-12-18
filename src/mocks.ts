@@ -4,6 +4,7 @@ export const USERS: User[] =
 [
   {
     "id": "2",
+    "picture":"http://lorempixel.com/400/200/people/2/",
     "name": "Ervin Howell",
     "birthday": new Date(1990,11,25),
     "email": "Shanna@melissa.tv",
@@ -22,6 +23,7 @@ export const USERS: User[] =
   },
   {
     "id": "3",
+    "picture":"http://lorempixel.com/400/200/people/3/",
     "name": "Clementine Bauch",
     "birthday": new Date(1988,10,17),
     "email": "Nathan@yesenia.net",
@@ -41,6 +43,7 @@ export const USERS: User[] =
   {
     "id": "4",
     "name": "Patricia Lebsack",
+    "picture":"http://lorempixel.com/400/200/people/4/",
     "birthday": new Date(1988,11,4),
     "email": "Julianne.OConner@kory.org",
     "address": {
@@ -59,6 +62,7 @@ export const USERS: User[] =
   {
     "id": "5",
     "name": "Chelsey Dietrich",
+    "picture":"http://lorempixel.com/400/200/people/5/",
     "birthday": new Date(1959,7,4),
     "email": "Lucio_Hettinger@annie.ca",
     "address": {
@@ -77,6 +81,7 @@ export const USERS: User[] =
   {
     "id": "6",
     "name": "Mrs. Dennis Schulist",
+    "picture":"http://lorempixel.com/400/200/people/6/",
     "birthday": new Date(1962,0,18),
     "email": "Karley_Dach@jasper.info",
     "address": {
@@ -95,6 +100,7 @@ export const USERS: User[] =
   {
     "id": "7",
     "name": "Kurtis Weissnat",
+    "picture":"http://lorempixel.com/400/200/people/7/",
     "birthday": new Date(1988,0,18),
     "email": "Telly.Hoeger@billy.biz",
     "address": {
@@ -113,6 +119,7 @@ export const USERS: User[] =
   {
     "id": "8",
     "name": "Nicholas Runolfsdottir V",
+    "picture":"http://lorempixel.com/400/200/people/8/",
     "birthday": new Date(1988,9,14),
     "email": "Sherwood@rosamond.me",
     "address": {
@@ -131,6 +138,7 @@ export const USERS: User[] =
   {
     "id": "9",
     "name": "Glenna Reichert",
+    "picture":"http://lorempixel.com/400/200/people/9/",
     "birthday": new Date(1986,11,22),
     "email": "Chaim_McDermott@dana.io",
     "address": {
@@ -149,6 +157,7 @@ export const USERS: User[] =
   {
     "id": "10",
     "name": "Clementina DuBuque",
+    "picture":"http://lorempixel.com/400/200/people/10/",
     "birthday": new Date(1988,8,17),
     "email": "Rey.Padberg@karina.biz",
     "address": {
