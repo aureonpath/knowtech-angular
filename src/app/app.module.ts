@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { routing, routedComponents } from './app.routing';
 import { NavBarComponent } from './navbar.component';
 import { HomeComponent } from './home.component';
-import { UsersComponent } from './users.component';
-import { UserService } from './users.service';
+import { UsersComponent } from './users/users.component';
+import { UserService } from './users/users.service';
 import { NotFoundComponent } from './not-found.component';
 
 @NgModule({

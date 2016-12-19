@@ -1,0 +1,12 @@
+.user-card{
+    margin: 20px auto;
+    max-width: 400px;
+    width: 100%;
+}
+
+.user-card__title{
+    color: #FFF;
+    height: 175px;
+    background-size: cover;
+    background-position: center;
+}
