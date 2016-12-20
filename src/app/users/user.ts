@@ -20,4 +20,5 @@ export class User {
     email: string;
     address = new Address();
     website: string;
+    isFavorited: boolean;
 }

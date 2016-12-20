@@ -19,7 +19,8 @@ export const USERS: User[] =
       }
     },
     "phone": "010-692-6593 x09125",
-    "website": "anastasia.net"
+    "website": "anastasia.net",
+    "isFavorited": false
   },
   {
     "id": "3",
@@ -38,7 +39,8 @@ export const USERS: User[] =
       }
     },
     "phone": "1-463-123-4447",
-    "website": "ramiro.info"
+    "website": "ramiro.info",
+    "isFavorited": true
   },
   {
     "id": "4",
@@ -57,7 +59,8 @@ export const USERS: User[] =
       }
     },
     "phone": "493-170-9623 x156",
-    "website": "kale.biz"
+    "website": "kale.biz",
+    "isFavorited": false
   },
   {
     "id": "5",
@@ -76,7 +79,8 @@ export const USERS: User[] =
       }
     },
     "phone": "(254)954-1289",
-    "website": "demarco.info"
+    "website": "demarco.info",
+    "isFavorited": true
   },
   {
     "id": "6",
@@ -95,7 +99,8 @@ export const USERS: User[] =
       }
     },
     "phone": "1-477-935-8478 x6430",
-    "website": "ola.org"
+    "website": "ola.org",
+    "isFavorited": false
   },
   {
     "id": "7",
@@ -114,7 +119,8 @@ export const USERS: User[] =
       }
     },
     "phone": "210.067.6132",
-    "website": "elvis.io"
+    "website": "elvis.io",
+    "isFavorited": true
   },
   {
     "id": "8",
@@ -133,7 +139,8 @@ export const USERS: User[] =
       }
     },
     "phone": "586.493.6943 x140",
-    "website": "jacynthe.com"
+    "website": "jacynthe.com",
+    "isFavorited": false
   },
   {
     "id": "9",
@@ -152,7 +159,8 @@ export const USERS: User[] =
       }
     },
     "phone": "(775)976-6794 x41206",
-    "website": "conrad.com"
+    "website": "conrad.com",
+    "isFavorited": true
   },
   {
     "id": "10",
@@ -171,6 +179,7 @@ export const USERS: User[] =
       }
     },
     "phone": "024-648-3804",
-    "website": "ambrose.net"
+    "website": "ambrose.net",
+    "isFavorited": false
   }
 ]
