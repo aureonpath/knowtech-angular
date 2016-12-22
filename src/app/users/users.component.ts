@@ -13,6 +13,7 @@ import { User } from './user';
 
 export class UsersComponent implements OnInit {
     users: User[];
+    isFavoritedFilterActive: boolean = false;
 
     constructor(private _service: UserService,  private router: Router) { }
 
@@ -20,4 +21,11 @@ export class UsersComponent implements OnInit {
         this.users = this._service.getUsers();
     }
 
+    setUserAsFavorite(user: User){
+        user.isFavorited = !user.isFavorited;
+    }
+
+    toggleFavoritedFilter(){
+        this.isFavoritedFilterActive = !this.isFavoritedFilterActive;
+    }
 }

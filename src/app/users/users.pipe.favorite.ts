@@ -4,7 +4,7 @@ import { User } from './user';
 
 @Pipe({ name: 'favoritedUsers' })
 export class FavoritedUsersPipe implements PipeTransform {
-  transform(allUsers: User[]) {
-    return allUsers.filter(user => user.isFavorited);
+  transform(allUsers: User[], isActive: boolean) {
+    return isActive ? allUsers.filter(user => user.isFavorited) : allUsers;
   }
 }

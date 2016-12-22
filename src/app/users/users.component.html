@@ -1,11 +1,11 @@
-<div class="page-content">
-    <!--<div>
+<div mdl class="page-content">
+    <div>
         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-            <input type="checkbox" id="switch-1" class="mdl-switch__input" [checked]=>
+            <input type="checkbox" id="switch-1" class="mdl-switch__input" (click)="toggleFavoritedFilter()">
             <span class="mdl-switch__label"></span>
         </label>
-    </div>-->
-    <div *ngFor="let user of (users | favoritedUsers)" class="user-card mdl-card mdl-shadow--2dp">
+    </div>
+    <div *ngFor="let user of (users | favoritedUsers: isFavoritedFilterActive)" class="user-card mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title user-card__title " [style.background-image]="'url(' + user.picture + ')'">
             <h2 class="mdl-card__title-text">{{user.name}}</h2>
         </div>
@@ -19,7 +19,7 @@
             <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Edit</a>
         </div>
         <div class="mdl-card__menu">
-            <button [class.is-favorited]="user.isFavorited" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect user-card__favorite-button">
+            <button [class.is-favorited]="user.isFavorited" (click)="setUserAsFavorite(user)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect user-card__favorite-button">
                 <i class="material-icons">star</i>
             </button>
         </div>
