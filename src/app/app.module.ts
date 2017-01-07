@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { MaterialModule } from '@angular/material';
 import { routing, routedComponents } from './app.routing';
 import { NavBarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home.component';
@@ -14,6 +15,7 @@ import { FavoritedUsersPipe } from './users/users.pipe.favorite';
   imports: [
     BrowserModule,
     routing,
+    MaterialModule.forRoot()
   ],
   declarations: [
     AppComponent,

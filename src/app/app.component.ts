@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <md-sidenav-layout>
     <navbar></navbar>
         <div class="container">
             <router-outlet></router-outlet>
         </div>
-  </div>
+  </md-sidenav-layout>
   `
 })
 export class AppComponent { }
