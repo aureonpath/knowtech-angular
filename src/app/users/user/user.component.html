@@ -1,0 +1,17 @@
+<div class="mdl-card__title user-card__title " [style.background-image]="'url(' + userInfo.picture + ')'">
+    <h2 class="mdl-card__title-text">{{userInfo.name}}</h2>
+</div>
+<div class="mdl-card__supporting-text">
+    <h5>Email</h5>
+    <span>{{userInfo.email}}</span>
+    <h5>Birthday</h5>
+    <span>{{userInfo.birthday | date}}</span>
+</div>
+<div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Edit</a>
+</div>
+<div class="mdl-card__menu">
+    <button [class.is-favorited]="userInfo.isFavorited" (click)="onClick()" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect user-card__favorite-button">
+        <i class="material-icons">star</i>
+    </button>
+</div>

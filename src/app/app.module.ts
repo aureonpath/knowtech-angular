@@ -6,10 +6,11 @@ import { MaterialModule } from '@angular/material';
 import { routing, routedComponents } from './app.routing';
 import { NavBarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home.component';
-import { UsersComponent } from './users/users.component';
-import { UserService } from './users/users.service';
+import { UsersComponent } from './users/user-list/users.component';
+import { UserComponent } from './users/user/user.component';
+import { UserService } from './users/user-list/users.service';
 import { NotFoundComponent } from './not-found.component';
-import { FavoritedUsersPipe } from './users/users.pipe.favorite';
+import { FavoritedUsersPipe } from './users/user-list/users.pipe.favorite';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { FavoritedUsersPipe } from './users/users.pipe.favorite';
     NavBarComponent,
     HomeComponent,
     UsersComponent,
+    UserComponent,
     NotFoundComponent,
     routedComponents,
     FavoritedUsersPipe

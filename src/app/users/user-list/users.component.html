@@ -1,0 +1,6 @@
+<div mdl class="page-content">
+            <md-slide-toggle (change)="toggleFavoritedFilter()">Slide me!</md-slide-toggle>
+    <div  >
+        <user-info *ngFor="let user of (users | favoritedUsers: isFavoritedFilterActive)" [userInfo]="user" (ratingClicked)="onRating($event, user)" class="user-card mdl-card mdl-shadow--2dp"></user-info>
+    </div>
+</div>
