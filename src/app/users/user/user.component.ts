@@ -12,16 +12,12 @@ import { User } from '../user';
 
 export class UserComponent {
     @Input() userInfo: User;
-    @Output() ratingClicked = new EventEmitter<boolean>();
+    @Output() setFavoriteClicked = new EventEmitter<boolean>();
     
     constructor() { }
  
-    onClick(): void {
+    setUserAsFavorite(): void {
         this.userInfo.isFavorited = !this.userInfo.isFavorited;
-        this.ratingClicked.emit(this.userInfo.isFavorited);
-    }
-    
-    setUserAsFavorite(user: User){
-        user.isFavorited = !user.isFavorited;
+        this.setFavoriteClicked.emit(this.userInfo.isFavorited);
     }
 }

@@ -1,0 +1,4 @@
+<div mdl class="page-content">
+    <md-slide-toggle (change)="toggleFavoritedFilter()">Slide me!</md-slide-toggle>
+    <user-info *ngFor="let user of (users | favoritedUsers: isFavoritedFilterActive)" [userInfo]="user" (setFavoriteClicked)="setFavorite($event, user)"></user-info>
+</div>

@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
         this.isFavoritedFilterActive = !this.isFavoritedFilterActive;
     }
 
-    onRating(obj: boolean, user: User): void {
-        user.isFavorited = obj;
+    setFavorite(isFavorite: boolean, user: User): void {
+        user.isFavorited = isFavorite;
     }
 }
