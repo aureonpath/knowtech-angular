@@ -99,3 +99,8 @@ md-sidenav.md-sidenav-side {
   display: block !important;
   height: 60px !important;
 }
+
+.add-button{
+  position: fixed !important;
+  left: 90vw;
+}

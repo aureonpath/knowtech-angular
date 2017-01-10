@@ -28,4 +28,8 @@ export class UsersComponent implements OnInit {
     setFavorite(isFavorite: boolean, user: User): void {
         user.isFavorited = isFavorite;
     }
+
+    newUser(){
+        this.router.navigate(['/users/new']);
+    }
 }
