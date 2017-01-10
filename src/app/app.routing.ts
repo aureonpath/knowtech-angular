@@ -1,10 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { UsersComponent } from './users.component';
-import { UserFormComponent } from './user-form.component';
+import { UsersComponent } from './users/users-list/users.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 import { NotFoundComponent } from './not-found.component';
-import { PostsComponent } from './posts.component';
 
 const appRoutes: Routes = [
   {
@@ -25,14 +24,6 @@ const appRoutes: Routes = [
     component: UserFormComponent
   },
   {
-    path: 'users/:id',
-    component: UserFormComponent
-  },
-  {
-    path: 'posts',
-    component: PostsComponent
-  },
-  {
     path: 'not-found',
     component: NotFoundComponent
   }
@@ -41,4 +32,4 @@ const appRoutes: Routes = [
 
 export const routing = RouterModule.forRoot(appRoutes);
 
-export const routedComponents = [HomeComponent, UserFormComponent, NotFoundComponent, PostsComponent];
+export const routedComponents = [HomeComponent, UserFormComponent, NotFoundComponent];

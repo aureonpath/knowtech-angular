@@ -1,0 +1,28 @@
+<md-sidenav #sidenav mode="side" class="mdl-layout__drawer">
+    <span class="mdl-layout-title"><i class="material-icons" (click)="sidenav.close()">close</i></span>
+    <nav class="mdl-navigation">
+        <a [class.is-active]="isCurrentRoute('users')" class="mdl-navigation__link" routerLink="/users">Users</a>
+        <a [class.is-active]="isCurrentRoute('posts')" class="mdl-navigation__link" routerLink="/posts">Posts</a>
+    </nav>
+
+    <!--<button class="app-icon-button" (click)="sidenav.close()">
+      <i class="material-icons">close</i>
+    </button>
+    <nav class="mdl-navigation">
+        <a [class.is-active]="isCurrentRoute('users')" class="mdl-navigation__link" routerLink="/users">Users</a>
+        <a [class.is-active]="isCurrentRoute('posts')" class="mdl-navigation__link" routerLink="/posts">Posts</a>
+    </nav>-->
+</md-sidenav>
+<header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+        <md-toolbar color="primary">
+            <button class="app-icon-button" (click)="sidenav.open()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+            <a class="mdl-layout-title" routerLink="/home">Da'list</a>
+            <span class="app-toolbar-filler"></span>
+            <a [class.is-active]="isCurrentRoute('users')" class="mdl-navigation__link" routerLink="/users">Users</a>
+            <a [class.is-active]="isCurrentRoute('posts')" class="mdl-navigation__link" routerLink="/posts">Posts</a>
+        </md-toolbar>
+    </div>
+</header>
