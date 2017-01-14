@@ -7,6 +7,8 @@ import '@angular/router';
 import '@angular/material';
 import '@angular/forms';
 import '@angular/http';
+// RxJS
+import 'rxjs';
 
 import 'hammerjs';
 

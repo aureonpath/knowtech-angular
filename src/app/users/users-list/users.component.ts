@@ -14,6 +14,7 @@ import { User } from '../user';
 export class UsersComponent implements OnInit {
     users: User[];
     isFavoritedFilterActive: boolean = false;
+    searchbox: string = '';
 
     constructor(private _service: UserService, private router: Router) { }
 

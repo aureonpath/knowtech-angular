@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+
+import '../rxjs-extensions';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
@@ -20,6 +23,7 @@ import { FavoritedUsersPipe } from './users/users-list/users.pipe.favorite';
     ReactiveFormsModule,
     FormsModule,
     routing,
+    HttpModule,
     MaterialModule.forRoot()
   ],
   declarations: [
