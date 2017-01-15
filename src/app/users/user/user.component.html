@@ -10,6 +10,7 @@
     </div>
     <div class="mdl-card__actions mdl-card--border">
         <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Edit</a>
+        <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" (click)="deleteUser()">Delete</a>
     </div>
     <div class="mdl-card__menu">
         <button [class.is-favorited]="userInfo.isFavorited" (click)="setUserAsFavorite()" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect user-card__favorite-button">

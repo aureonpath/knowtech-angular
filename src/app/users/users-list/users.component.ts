@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserService } from '../users.service';
 import { UserComponent } from '../user/user.component';
 import { User } from '../user';
@@ -19,7 +20,10 @@ export class UsersComponent implements OnInit {
     constructor(private _service: UserService, private router: Router) { }
 
     ngOnInit() {
-        this.users = this._service.getUsers();
+        let users$ = this._service.getUsers();
+        users$.subscribe(
+            usersResponse => this.users = usersResponse
+        );
     }
 
     toggleFavoritedFilter() {
@@ -28,6 +32,14 @@ export class UsersComponent implements OnInit {
 
     setFavorite(isFavorite: boolean, user: User): void {
         user.isFavorited = isFavorite;
+    }
+
+    deleteUserAndReload(reloadedUsers$: Observable<User[]>): void {
+        reloadedUsers$.subscribe(
+            reloadedUsersResponse => this.users = reloadedUsersResponse,
+            (error) => {console.log("error on reloadedUsers$.subscribe()", error)},
+            () => {console.log("event received and subcribed")}
+        )
     }
 
     newUser(){
