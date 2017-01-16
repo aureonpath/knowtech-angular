@@ -15,6 +15,7 @@ import { User } from '../user';
 
 export class UsersComponent implements OnInit {
     users: User[];
+    users$: Observable<User[]>;
     isFavoritedFilterActive: boolean = false;
     searchbox: string = '';
     currentSubscription: Subscription;
@@ -23,6 +24,7 @@ export class UsersComponent implements OnInit {
 
     ngOnInit() {
         this._sharedService.cancelAllRequests();
+        // this.users$ = this._service.getUsers();
 
         let users$ = this._service.getUsers();
         this._sharedService.currentSubscription = users$.subscribe(
@@ -45,6 +47,9 @@ export class UsersComponent implements OnInit {
     }
 
     deleteUserAndReload(reloadedUsers$: Observable<User[]>): void {
+
+        // this.users$ = reloadedUsers$;
+
         this._sharedService.currentSubscription = reloadedUsers$.subscribe(
             reloadedUsersResponse => this.users = reloadedUsersResponse,
             (error) => { console.log("error on reloadedUsers$.subscribe()", error) },
