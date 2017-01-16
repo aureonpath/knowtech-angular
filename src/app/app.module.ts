@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { CoreModule } from './core.module'
 
 import '../rxjs-extensions';
 
@@ -24,6 +25,7 @@ import { FavoritedUsersPipe } from './users/users-list/users.pipe.favorite';
     FormsModule,
     routing,
     HttpModule,
+    CoreModule,
     MaterialModule.forRoot()
   ],
   declarations: [

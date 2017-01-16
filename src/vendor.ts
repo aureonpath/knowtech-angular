@@ -7,6 +7,7 @@ import '@angular/router';
 import '@angular/material';
 import '@angular/forms';
 import '@angular/http';
+import './app/core.module';
 // RxJS
 import 'rxjs';
 

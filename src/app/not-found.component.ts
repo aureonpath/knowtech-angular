@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from './shared.service';
 
 @Component(
     {
@@ -8,4 +9,10 @@ import {Component} from '@angular/core';
     }
 )
 
-export class NotFoundComponent { }
+export class NotFoundComponent {
+    constructor(private _service: SharedService) { }
+
+    ngOnInit() {
+        this._service.cancelAllRequests();
+    }
+}

@@ -1,25 +1,5 @@
 {
   "users": [
-  {
-    "id": "2",
-    "picture":"http://lorempixel.com/400/200/people/2/",
-    "name": "Ervin Howell",
-    "birthday": "1990-11-25",
-    "email": "Shanna@melissa.tv",
-    "address": {
-      "street": "Victor Plains",
-      "suite": "Suite 879",
-      "city": "Wisokyburgh",
-      "zipcode": "90566-7771",
-      "geo": {
-        "lat": "-43.9509",
-        "lng": "-34.4618"
-      }
-    },
-    "phone": "010-692-6593 x09125",
-    "website": "anastasia.net",
-    "isFavorited": false
-  },
     {
       "id": "3",
       "picture": "http://lorempixel.com/400/200/people/3/",

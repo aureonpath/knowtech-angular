@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { SharedService } from '../../shared.service';
+import { Observable, Subscription } from 'rxjs';
 import { UserService } from '../users.service';
 import { UserComponent } from '../user/user.component';
 import { User } from '../user';
@@ -16,14 +17,23 @@ export class UsersComponent implements OnInit {
     users: User[];
     isFavoritedFilterActive: boolean = false;
     searchbox: string = '';
+    currentSubscription: Subscription;
 
-    constructor(private _service: UserService, private router: Router) { }
+    constructor(private _service: UserService, private _sharedService: SharedService, private router: Router) { }
 
     ngOnInit() {
+        this._sharedService.cancelAllRequests();
+
         let users$ = this._service.getUsers();
-        users$.subscribe(
-            usersResponse => this.users = usersResponse
+        this._sharedService.currentSubscription = users$.subscribe(
+            usersResponse => {
+                console.log("list of users", usersResponse);
+                this.users = usersResponse;
+            },
+            (error) => { console.log("error on users$.subscribe", error) },
+            () => { console.log("load all users completed") }
         );
+        console.log("service current subscription", this._sharedService.currentSubscription);
     }
 
     toggleFavoritedFilter() {
@@ -35,14 +45,14 @@ export class UsersComponent implements OnInit {
     }
 
     deleteUserAndReload(reloadedUsers$: Observable<User[]>): void {
-        reloadedUsers$.subscribe(
+        this._sharedService.currentSubscription = reloadedUsers$.subscribe(
             reloadedUsersResponse => this.users = reloadedUsersResponse,
-            (error) => {console.log("error on reloadedUsers$.subscribe()", error)},
-            () => {console.log("event received and subcribed")}
+            (error) => { console.log("error on reloadedUsers$.subscribe()", error) },
+            () => { console.log("event received and subscribed") }
         )
     }
 
-    newUser(){
+    newUser() {
         this.router.navigate(['/users/new']);
     }
 }

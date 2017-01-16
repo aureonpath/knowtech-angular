@@ -4,6 +4,6 @@
     <md-input-container class="app-fullwidth-input">
         <input md-input type="text" placeholder="search" [(ngModel)]="searchbox">
     </md-input-container>
-    <user-info *ngFor="let user of (users | favoritedUsers: isFavoritedFilterActive)" [userInfo]="user" (setFavoriteClicked)="setFavorite($event, user)"></user-info>
+    <user-info *ngFor="let user of (users | favoritedUsers: isFavoritedFilterActive)" [userInfo]="user" (setFavoriteClicked)="setFavorite($event, user)" (deleteUserClicked)="deleteUserAndReload($event)"></user-info>
 
 </div>
