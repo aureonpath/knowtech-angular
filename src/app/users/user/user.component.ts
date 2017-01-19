@@ -20,7 +20,7 @@ export class UserComponent {
     @Output() setFavoriteClicked = new EventEmitter<boolean>();
     @Output() deleteUserClicked = new EventEmitter<Observable<User[]>>();
 
-    constructor(private _service: UserService, private _sharedService: SharedService) { }
+    constructor(private _service: UserService, private _sharedService: SharedService, private _router: Router) { }
 
     setUserAsFavorite(): void {
         this.userInfo.isFavorited = !this.userInfo.isFavorited;
@@ -55,5 +55,8 @@ export class UserComponent {
                 this.deleteUserClicked.emit(reloadUsers$);}
         )
 
+    }
+    editUser() {
+        this._router.navigate(['/users/' + this.userInfo.id]);
     }
 }

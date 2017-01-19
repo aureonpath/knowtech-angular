@@ -23,6 +23,15 @@ export class UserService {
         console.log("username", userName)
         let request = this.http.get(this._url + "?name_like=" + userName);
 
+        return request.map(response => response.json());
+    }
+
+    getUserById(id: string): Observable<User> {
+        console.log("id", id)
+        let request = this.http.get(this._url + "/" + id);
+        
+        return request.map(response => response.json());
+    }
 
     updateUser(user: User, userId: string): Observable<User> {
         let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON

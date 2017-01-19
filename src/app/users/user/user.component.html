@@ -9,7 +9,7 @@
         <span>{{userInfo.birthday | date}}</span>
     </div>
     <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Edit</a>
+        <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" (click)="editUser()">Edit</a>
         <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" (click)="deleteUser()">Delete</a>
     </div>
     <div class="mdl-card__menu">

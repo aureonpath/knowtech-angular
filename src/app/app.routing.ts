@@ -24,6 +24,10 @@ const appRoutes: Routes = [
     component: UserFormComponent
   },
   {
+    path: 'users/:id',
+    component: UserFormComponent
+  },
+  {
     path: 'not-found',
     component: NotFoundComponent
   }
