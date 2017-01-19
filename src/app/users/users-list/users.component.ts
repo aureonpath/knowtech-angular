@@ -43,6 +43,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
         const search$ = Observable.fromEvent(input, 'keyup')
             .do(()=>console.log(input.value))
             .switchMap(()=> this._service.getUsersByName(input.value));
+
+            
         search$.subscribe(
             users => this.users = users,
             (error)=> {console.log(error)},
