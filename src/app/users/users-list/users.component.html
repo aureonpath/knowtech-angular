@@ -2,7 +2,7 @@
     <md-slide-toggle (change)="toggleFavoritedFilter()">Slide me!</md-slide-toggle>
     <button md-fab (click)="newUser()" class="add-button"><md-icon>add</md-icon></button>
     <md-input-container class="app-fullwidth-input">
-        <input md-input type="text" placeholder="search" [(ngModel)]="searchbox">
+        <input id="searchbox" md-input type="text" placeholder="search" [(ngModel)]="searchbox">
     </md-input-container>
     <user-info *ngFor="let user of (users | favoritedUsers: isFavoritedFilterActive)" [userInfo]="user" (setFavoriteClicked)="setFavorite($event, user)" (deleteUserClicked)="deleteUserAndReload($event)"></user-info>
     <!--<user-info *ngFor="let user of (users$ | async | favoritedUsers: isFavoritedFilterActive)" [userInfo]="user" (setFavoriteClicked)="setFavorite($event, user)" (deleteUserClicked)="deleteUserAndReload($event)"></user-info>-->

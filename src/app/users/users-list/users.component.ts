@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from '../../shared.service';
 import { Observable, Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { User } from '../user';
 })
 
 
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, AfterViewInit {
     users: User[];
     users$: Observable<User[]>;
     isFavoritedFilterActive: boolean = false;
@@ -36,6 +36,15 @@ export class UsersComponent implements OnInit {
             () => { console.log("load all users completed") }
         );
         console.log("service current subscription", this._sharedService.currentSubscription);
+    }
+
+    ngAfterViewInit() {
+        const input: any = document.getElementById('searchbox');
+        console.log('searchbox', input);
+        const search$ = Observable.fromEvent(input, 'keyup')
+            .do(()=>console.log(input.value))
+            .switchMap(()=> this._service.getUsersByName(input.value));
+        search$.subscribe();
     }
 
     toggleFavoritedFilter() {
