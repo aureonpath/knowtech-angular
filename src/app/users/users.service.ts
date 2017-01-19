@@ -14,10 +14,15 @@ export class UserService {
     constructor(private http: Http) { }
 
     getUsers(): Observable<User[]> {
-        let request = this.http.get(this._url).delay(5000);
+        let request = this.http.get(this._url);
 
         return request.map(response => response.json());
     }
+
+    getUsersByName(userName: string): Observable<User[]> {
+        console.log("username", userName)
+        let request = this.http.get(this._url + "?name_like=" + userName);
+
 
     updateUser(user: User, userId: string): Observable<User> {
         let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
