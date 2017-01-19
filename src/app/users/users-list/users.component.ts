@@ -12,7 +12,6 @@ import { User } from '../user';
     providers: [UserService]
 })
 
-//https://www.youtube.com/watch?v=Ucoi4jnOf8w&list=PLOa5YIicjJ-WLwQFA_aOnU7EuJvlkfrZ0&index=12
 export class UsersComponent implements OnInit, AfterViewInit {
     users: User[];
     users$: Observable<User[]>;
@@ -44,7 +43,12 @@ export class UsersComponent implements OnInit, AfterViewInit {
         const search$ = Observable.fromEvent(input, 'keyup')
             .do(()=>console.log(input.value))
             .switchMap(()=> this._service.getUsersByName(input.value));
-        search$.subscribe();
+        search$.subscribe(
+            users => this.users = users,
+            (error)=> {console.log(error)},
+            ()=>{console.log("completedddd")}
+        );
+
     }
 
     toggleFavoritedFilter() {
