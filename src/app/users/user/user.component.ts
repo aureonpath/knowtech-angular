@@ -24,7 +24,7 @@ export class UserComponent {
 
     setUserAsFavorite(): void {
         this.userInfo.isFavorited = !this.userInfo.isFavorited;
-        let updatedUser$ = this._service.updateUser(this.userInfo, this.userInfo.id);
+        let updatedUser$ = this._service.updateUser(this.userInfo, this.userInfo.id.toString());
 
         this._sharedService.currentSubscription = updatedUser$.subscribe(
             userResponse => {
@@ -39,7 +39,7 @@ export class UserComponent {
     }
 
     deleteUser(): void {
-        let deleteUser$ = this._service.deleteUser(this.userInfo.id);
+        let deleteUser$ = this._service.deleteUser(this.userInfo.id.toString());
         let reloadUsers$ = this._service.getUsers();
 
         let deleteAndReload$ = Observable.concat(

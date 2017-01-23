@@ -1,24 +1,24 @@
-export class Geolocation {
+export interface Geolocation {
     lat: string;
     lng: string;
 }
 
-export class Address {
+export interface Address {
     street: string;
     suite: string;
     city: string;
     zipcode: string;
-    geo = new Geolocation();
+    geo: Geolocation;
 }
 
-export class User {
-    id: string;
+export interface User {
+    id: number;
     picture: string;
     name: string;
     birthday: Date;
     phone: string;
     email: string;
-    address = new Address();
+    address:  Address;
     website: string;
     isFavorited: boolean;
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Observable} from 'rxjs'
+import { Observable } from 'rxjs'
 import { User } from '../user';
 import { UserService } from '../users.service';
 
@@ -14,12 +14,13 @@ import { UserService } from '../users.service';
 export class UserFormComponent implements OnInit {
     form: any;
     title: string;
-    user = new User();
+    user: User;
+    userForm: FormGroup;
     id: string;
-    registerForm: FormGroup;
-    user$: Observable<User[]>;
+    user$: Observable<User>;
+    submitted: boolean = false;
 
-    constructor(private _activatedRoute: ActivatedRoute, private _userService: UserService, private formBuilder: FormBuilder, private _router: Router) { }
+    constructor(private _activatedRoute: ActivatedRoute, private _userService: UserService, private fb: FormBuilder, private _router: Router) { }
 
     ngOnInit() {
         this._activatedRoute.params.forEach((params: Params) => {
@@ -29,30 +30,48 @@ export class UserFormComponent implements OnInit {
             }
         });
 
+        this.userForm = this.fb.group({
+            name: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(100)])],
+            birthday: ['', Validators.required],
+            phone: ['', Validators.required],
+            email: ['', Validators.required],
+            address: this.fb.group({
+                street: ['', Validators.minLength(3)],
+                suite: ['', Validators.minLength(3)],
+                city: ['', Validators.maxLength(100)]
+            }),
+            website: ['', Validators.required]
+        });
+
         this.title = this.id ? "Edit User" : "Add User";
         if (!this.id) {
             return;
-        }else{
-            this.user$ = this._userService.getUsers();
+        } else {
+            this.user$ = this._userService.getUserById(this.id);
             this.user$.subscribe(
-                users => this.user = users.find(user => user.id === this.id)
+                user => this.user = user,
+                () => { },
+                () => {
+                    this.userForm.patchValue(this.user);
+                }
             );
         }
 
-        this.registerForm = this.formBuilder.group({
-            firstname: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
-            lastname: ['', Validators.required],
-            address: this.formBuilder.group({
-                street: ['', Validators.minLength(3)],
-                city: ['', Validators.maxLength(10)],
-                zip: ['', Validators.pattern('[A-Za-z]{5}')]
-            })
-        });
-
     }
 
-    save() {
-        this._userService.addUser(this.user);
-        this._router.navigate(['/users']);
+    onSubmit(user: any) {
+        console.log("", user);
+        this.submitted = true;
+        if (user.valid) {
+            alert('todo bien');
+            this.user$ = this._userService.updateUser(user.value, this.id);
+            this.user$.subscribe(
+                () => { },
+                () => { },
+                () => {
+                    this._router.navigate(['/users']);
+                }
+            )
+        }
     }
 }

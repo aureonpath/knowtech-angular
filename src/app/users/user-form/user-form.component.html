@@ -1,12 +1,12 @@
 <h1 style="text-align: center;">{{title}}</h1>
 <div class="row">
     <div class="col-md-6 well">
-        <form (ngSubmit)="userForm.valid && save()" #userForm="ngForm" novalidate class="mobile-form">
+        <!--<form (ngSubmit)="userForm.valid && save()" #userForm="ngForm" novalidate class="mobile-form">
             <md-list>
                 <h3 md-subheader>User Info</h3>
                 <md-list-item>
                     <md-input-container class="app-fullwidth-input">
-                        <input md-input type="text" placeholder="Name" [(ngModel)]="user.name" required name="name" #name="ngModel">
+                        <input md-input type="text" placeholder="Name" [(ngModel)]="userForm.name" required name="name" #name="ngModel">
                     </md-input-container>
                     <p [hidden]="!(name.hasError('required') && (name.touched || userForm.submitted))" class="app-form-error-message">
                         Name is required
@@ -14,7 +14,7 @@
                 </md-list-item>
                 <md-list-item>
                     <md-input-container class="app-fullwidth-input">
-                        <input md-input placeholder="Email" type="text" class="form-control" name="email" [(ngModel)]="user.email" required #email="ngModel">
+                        <input md-input placeholder="Email" type="text" class="form-control" name="email" [(ngModel)]="userForm.email" required #email="ngModel">
                     </md-input-container>
                     <p [hidden]="!(email.hasError('required') && (email.touched || userForm.submitted))" class="app-form-error-message">
                         Enter valid email
@@ -22,39 +22,81 @@
                 </md-list-item>
                 <md-list-item>
                     <md-input-container class="app-fullwidth-input">
-                        <input md-input placeholder="Phone" type="text" class="form-control" name="phone" [(ngModel)]="user.phone">
+                        <input md-input placeholder="Phone" type="text" class="form-control" name="phone" [(ngModel)]="userForm.phone">
                     </md-input-container>
                 </md-list-item>
                 <md-divider></md-divider>
                 <h3 md-subheader>Notes</h3>
             </md-list>
             <button md-raised-button type="submit" class="btn btn-primary">Save</button>
-        </form>
+        </form>-->
 
-        <form novalidate [formGroup]="registerForm">
-            <label>Firstname:</label>
-            <input type="text" formControlName="firstname">
-
-            <label>Lastname:</label>
-            <input type="text" formControlName="lastname">
-
-            <fieldset formGroupName="address">
-                <label>Street:</label>
-                <input type="text" formControlName="street">
-
-                <label>Zip:</label>
-                <input type="text" formControlName="zip">
-
-                <label>City:</label>
-                <input type="text" formControlName="city">
-            </fieldset>
-            <p *ngIf="registerForm.controls['firstname'].hasError('required') && registerForm.controls['firstname'].touched">
-                required
-            </p>
-            <p *ngIf="registerForm.controls['firstname'].hasError('minlength') && registerForm.controls['firstname'].touched">
-                Enter valid length
-            </p>
-            <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+        <form novalidate (ngSubmit)="onSubmit(userForm)" [formGroup]="userForm" class="mobile-form">
+            <md-list>
+                <h3 md-subheader>User Info</h3>
+                <md-list-item>
+                    <md-input-container class="app-fullwidth-input">
+                        <input md-input type="text" placeholder="Name" formControlName="name">
+                    </md-input-container>
+                    <div class="app-form-error-message" *ngIf="userForm.get('name').touched && userForm.get('name').hasError('required')">
+                        Name is required
+                    </div>
+                    <div class="app-form-error-message" *ngIf="userForm.get('name').touched && userForm.get('name').hasError('minlength')">
+                        Minimum of 5 characters
+                    </div>
+                </md-list-item>
+                <md-list-item>
+                    <md-input-container class="app-fullwidth-input">
+                        <input md-input type="date" placeholder="Birthday" formControlName="birthday">
+                    </md-input-container>
+                    <div class="app-form-error-message" *ngIf="userForm.get('birthday').touched && userForm.get('birthday').hasError('required')">
+                        Birthday is required
+                    </div>
+                </md-list-item>
+                <md-list-item>
+                    <md-input-container class="app-fullwidth-input">
+                        <input md-input type="number" placeholder="Phone" formControlName="phone">
+                    </md-input-container>
+                    <div class="app-form-error-message" *ngIf="userForm.get('phone').touched && userForm.get('phone').hasError('required')">
+                        Phone is required
+                    </div>
+                </md-list-item>
+                <md-list-item>
+                    <md-input-container class="app-fullwidth-input">
+                        <input md-input type="email" placeholder="Email" formControlName="email">
+                    </md-input-container>
+                    <div class="app-form-error-message" *ngIf="userForm.get('email').touched && userForm.get('email').hasError('required')">
+                        Email is required
+                    </div>
+                </md-list-item>
+                <div formGroupName="address">
+                    <md-list-item>
+                        <md-input-container class="app-fullwidth-input">
+                            <input md-input type="text" placeholder="street" formControlName="street">
+                        </md-input-container>
+                        <div class="app-form-error-message" *ngIf="userForm.get('address').get('street').hasError('required') && (userForm.get('address').get('street').touched || submitted)">
+                            Street is required
+                        </div>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-input-container class="app-fullwidth-input">
+                            <input md-input type="text" placeholder="suite" formControlName="suite">
+                        </md-input-container>
+                        <div class="app-form-error-message" *ngIf="userForm.get('address').get('suite').hasError('required') && userForm.get('address').get('suite').touched">
+                            Suite is required
+                        </div>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-input-container class="app-fullwidth-input">
+                            <input md-input type="text" placeholder="city" formControlName="city">
+                        </md-input-container>
+                        <div class="app-form-error-message" *ngIf="userForm.get('address').get('city').hasError('required') && userForm.get('address').get('city').touched">
+                            City is required
+                        </div>
+                    </md-list-item>
+                </div>
+            </md-list>
+            <button md-raised-button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 </div>
