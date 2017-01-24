@@ -53,22 +53,7 @@
                         Birthday is required
                     </div>
                 </md-list-item>
-                <md-list-item>
-                    <md-input-container class="app-fullwidth-input">
-                        <input md-input type="number" placeholder="Phone" formControlName="phone">
-                    </md-input-container>
-                    <div class="app-form-error-message" *ngIf="userForm.get('phone').touched && userForm.get('phone').hasError('required')">
-                        Phone is required
-                    </div>
-                </md-list-item>
-                <md-list-item>
-                    <md-input-container class="app-fullwidth-input">
-                        <input md-input type="email" placeholder="Email" formControlName="email">
-                    </md-input-container>
-                    <div class="app-form-error-message" *ngIf="userForm.get('email').touched && userForm.get('email').hasError('required')">
-                        Email is required
-                    </div>
-                </md-list-item>
+                <!-- implementar las demas  phone, email-->
                 <div formGroupName="address">
                     <md-list-item>
                         <md-input-container class="app-fullwidth-input">
@@ -78,22 +63,7 @@
                             Street is required
                         </div>
                     </md-list-item>
-                    <md-list-item>
-                        <md-input-container class="app-fullwidth-input">
-                            <input md-input type="text" placeholder="suite" formControlName="suite">
-                        </md-input-container>
-                        <div class="app-form-error-message" *ngIf="userForm.get('address').get('suite').hasError('required') && userForm.get('address').get('suite').touched">
-                            Suite is required
-                        </div>
-                    </md-list-item>
-                    <md-list-item>
-                        <md-input-container class="app-fullwidth-input">
-                            <input md-input type="text" placeholder="city" formControlName="city">
-                        </md-input-container>
-                        <div class="app-form-error-message" *ngIf="userForm.get('address').get('city').hasError('required') && userForm.get('address').get('city').touched">
-                            City is required
-                        </div>
-                    </md-list-item>
+                <!-- implementar las demas dentro de este grupo suite, city-->
                 </div>
             </md-list>
             <button md-raised-button type="submit" class="btn btn-primary">Save</button>

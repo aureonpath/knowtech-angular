@@ -47,31 +47,13 @@ export class UserFormComponent implements OnInit {
         if (!this.id) {
             return;
         } else {
-            this.user$ = this._userService.getUserById(this.id);
-            this.user$.subscribe(
-                user => this.user = user,
-                () => { },
-                () => {
-                    this.userForm.setValue(this.user);
-                }
-            );
+            // obtener el usuario por id
         }
 
     }
 
     onSubmit(user: any) {
-        console.log("", user);
-        this.submitted = true;
-        if (user.valid) {
-            alert('todo bien');
-            this.user$ = this._userService.updateUser(user.value, this.id);
-            this.user$.subscribe(
-                () => { },
-                () => { },
-                () => {
-                    this._router.navigate(['/users']);
-                }
-            )
-        }
+        console.log("infomacion del form group", user);
+        // actualizamos el usuario al estar valido
     }
 }
