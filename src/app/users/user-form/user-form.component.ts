@@ -52,7 +52,7 @@ export class UserFormComponent implements OnInit {
                 user => this.user = user,
                 () => { },
                 () => {
-                    this.userForm.patchValue(this.user);
+                    this.userForm.setValue(this.user);
                 }
             );
         }
