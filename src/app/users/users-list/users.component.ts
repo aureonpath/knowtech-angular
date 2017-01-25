@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from '../../shared.service';
 import { Observable, Subscription } from 'rxjs';
@@ -18,6 +18,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
     isFavoritedFilterActive: boolean = false;
     searchbox: string = '';
     currentSubscription: Subscription;
+    
+    @ViewChild('typeahead') input: ElementRef;
 
     constructor(private _service: UserService, private _sharedService: SharedService, private router: Router) { }
 
@@ -38,17 +40,12 @@ export class UsersComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        const input: any = document.getElementById('searchbox');
-        console.log('searchbox', input);
-        const search$ = Observable.fromEvent(input, 'keyup')
-            .do(()=>console.log(input.value))
-            .switchMap(()=> this._service.getUsersByName(input.value));
 
-            
+        const search$ = Observable.fromEvent(this.input.nativeElement, 'keyup')
+            .switchMap(()=> this._service.getUsersByName(this.input.nativeElement.value));
+
         search$.subscribe(
-            users => this.users = users,
-            (error)=> {console.log(error)},
-            ()=>{console.log("completedddd")}
+            (users) => this.users = users
         );
 
     }
