@@ -5,11 +5,14 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs'
 import { User } from '../user';
 import { UserService } from '../users.service';
+import {routerTransition} from '../../animation/router.animation';
 
 @Component({
     templateUrl: 'user-form.component.html',
     selector: 'user-form',
-    providers: [UserService]
+    providers: [UserService],
+    animations: [routerTransition()],
+    host: { '[@routerTransition]': '' }
 })
 export class UserFormComponent implements OnInit {
     form: any;

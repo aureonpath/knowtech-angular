@@ -5,11 +5,14 @@ import { Observable, Subscription } from 'rxjs';
 import { UserService } from '../users.service';
 import { UserComponent } from '../user/user.component';
 import { User } from '../user';
+import { routerTransition} from '../../animation/router.animation';
 
 @Component({
     selector: 'users',
     templateUrl: './users.component.html',
-    providers: [UserService]
+    providers: [UserService],
+    animations: [routerTransition()],
+    host: { '[@routerTransition]': '' }
 })
 
 export class UsersComponent implements OnInit, AfterViewInit {
@@ -18,7 +21,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
     isFavoritedFilterActive: boolean = false;
     searchbox: string = '';
     currentSubscription: Subscription;
-    
+
     @ViewChild('typeahead') input: ElementRef;
 
     constructor(private _service: UserService, private _sharedService: SharedService, private router: Router) { }
@@ -42,7 +45,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
 
         const search$ = Observable.fromEvent(this.input.nativeElement, 'keyup')
-            .switchMap(()=> this._service.getUsersByName(this.input.nativeElement.value));
+            .switchMap(() => this._service.getUsersByName(this.input.nativeElement.value));
 
         search$.subscribe(
             (users) => this.users = users
